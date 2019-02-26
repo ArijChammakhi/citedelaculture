@@ -1,0 +1,41 @@
+{% extends "::Client.html.twig" %}
+
+{% block content %}
+    <div class="container">
+        <table>
+            {% for workshop in pagination %}
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail text-center">
+
+
+                        <br/>
+                        <h5 class="text-primary">Voici les coordoneés d un workshop </h5>
+                        <ul>
+                            <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> Son nom est : {{ workshop.nom }}</li>
+                            <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> son prix est :{{ workshop.prix }}</li>
+                            <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> realiser a  : {{ workshop.date|date('Y-m-d') }}</li>
+                            <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> Former par  : {{ workshop.idUser }}</li>
+                            <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> Type de workshop : {{ workshop.idtypework.nom }}</li>
+                            <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> salle : {{ workshop.salle.nom }}</li>
+                            <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> Session : {{ workshop.idSession.titre }}</li>
+
+                        </ul>
+
+
+
+                        <a  class="btn btn-danger btn-block text-white"  >Reserver</a>
+
+
+                    </div>
+
+
+                </div>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,54 @@
+
+
+{% block content %}
+
+
+    <div class="container">
+        <!--Content Section Start -->
+
+        <div class="text-center">
+            <h3 class="border-success"><span class="heading_border bg-success" ><i>Consulter toutes les  evenemet </i></span></h3>
+        </div>
+
+
+        <!-- Best Deal Section Start -->
+        <div class="row">
+
+
+
+                {% for m in evenement %}
+                    <div class="col-sm-6 col-md-3">
+                        <div class="thumbnail text-center">
+
+
+                            <br/>
+                            <h5 class="text-primary">Voici les coord de l'evenement</h5>
+                            <ul>
+                                <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> nom est : {{ m.dateFin }}</li>
+                             </ul>
+
+
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                {% endfor%}
+
+
+
+
+        </div>
+    </div>
+    <br><br><br><br>
+
+
+    <script src="{{ asset('jquery-3.2.1.min.js') }}"></script>
+
+
+
+{% endblock content%}

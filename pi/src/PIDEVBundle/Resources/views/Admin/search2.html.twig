@@ -1,0 +1,37 @@
+<div class="searching">
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <h3><i class="fa fa-angle-right"></i> Les sessions</h3>
+            <div class="row mb">
+                <!-- page start-->
+                <div class="content-panel">
+                    <div class="adv-table">
+                        <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+                            <tr><td>titre de session </td><td>date de debut</td><td>Date FIN</td><td>Action</td></tr>
+                            {% for session in m %}
+                                <tr>
+                                    <td>
+                                        {{ session.titre }}
+                                    </td>
+                                    <td> {{session.dateDeSes|date}}</td>
+                                    <td> {{ session.dateFinSes|date}}</td>
+                                    <td> <a class="btn btn-danger btn-block text-white" href="{{ path('selectworkshop1',{'idSession':session.id }) }}" >voir les workshops</a>
+
+                                        <a  class="btn btn-danger btn-block text-white" href="{{ path('supprimerSession',{'id': session.id })}}">Suprimmer </a>
+                                        <a  class="btn btn-danger btn-block text-white" href="{{ path('updatesession1',{'ide': session.id })}}">update </a></td>
+                                </tr>
+                            {% endfor %}
+
+                        </table>
+                    </div>
+                </div>
+                <!-- page end-->
+            </div>
+
+            <!-- /row -->
+        </section>
+        <!-- /wrapper -->
+    </section>
+    {% endfor %}
+</div>

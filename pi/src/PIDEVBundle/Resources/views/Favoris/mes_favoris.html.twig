@@ -1,0 +1,113 @@
+{% extends "Client.html.twig" %}
+
+
+
+
+
+{% block content %}
+    <div class="container">
+        <br>
+
+        <div class="text-center">
+            <div class="searching">
+                <h3 class="border-success"><span class="heading_border bg-success" >Voici la Liste de Vos Workshop Favoris</span></h3>
+
+
+                <br>
+                <br>
+                {% for favoris in m %}
+
+                    <div class="col-sm-6 col-md-3">
+                        <div class="thumbnail text-center">
+
+
+                            <br/>
+                            <h5 class="text-primary">Voici les coordoneés de l'evenement</h5>
+                            <img src="{{ asset('images/arij/') }}{{ favoris.workshop.images }}" style="width: 150px; height: 150px">
+
+                            <ul>
+
+
+                                <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> Son nom est : {{ favoris.workshop.nom }}</li>
+                                <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> Date  :{{ favoris.workshop.date|date('Y-m-d') }}</li>
+
+
+
+
+                            </ul>
+
+
+
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+
+
+
+            <div class="navigation">
+                {{ knp_pagination_render(m) }}
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+
+
+
+    <script src="{{ asset('jquery-3.2.1.min.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('js/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/raphael.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/livicons-1.4.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/josh_frontend.js') }}"></script>
+    <!--global js end-->
+    <!-- page level js starts-->
+    <script type="text/javascript" src="{{ asset('js/jquery.circliful.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendors/owl-carousel/owl.carousel.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/carousel.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/index.js') }}"></script>
+    <!--page level js ends-->
+    <!--global css starts-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
+    <!--end of global css-->
+    <!--page level css starts-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/tabbular.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.circliful.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/owl-carousel/owl.carousel.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/owl-carousel/owl.theme.css') }}">
+    <!--end of page level css-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png" type="image/x-icon') }}">
+    <link rel="icon" href="{{ asset('images/favicon.png" type="image/x-icon') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/shopping.css') }}">
+    <script src="{{ asset('util/jquery-3.3.1.min.js') }}"></script>
+
+    <script>
+
+
+        $(document).ready(function () {
+            $('#recherche').on('keyup', function () {
+                $search = $(this).val();
+                $.ajax({
+                    url: "{{ path('a_recherche2') }}",
+                    data: {'search2': $search }
+                }).done(function (response) {
+                    $('.searching').html(response)
+                }).catch(function (err) {
+
+                });
+            });
+        });
+
+
+    </script>
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+
+{% extends 'admin.html.twig' %}
+
+
+
+
+{% block content %}
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <h3><i class="fa fa-angle-right"></i> Les Workshops</h3>
+            <div class="row mb">
+                <!-- page start-->
+                <div class="content-panel">
+                    <div class="adv-table">
+                        <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+                            <tr><td>workshop </td><td>date </td><td>prix</td><td>type de workshop</td><td>dans la salle </td><td>former par</td></tr>
+                            {% for Workshop in m %}
+                                <tr>
+                                    <td>
+                                        {{ Workshop.nom }}
+                                    </td>
+                                    <td> {{Workshop.date|date}}</td>
+                                    <td> {{ Workshop.prix }}</td>
+                                    <td>
+                                        {{ Workshop.idtypework.nom }}
+                                    </td>
+                                    <td> {{Workshop.salle.nom}}</td>
+                                    <td> {{ Workshop.idUser}}</td>
+
+                                </tr>
+                            {% endfor %}
+
+                        </table>
+                    </div>
+                </div>
+                <!-- page end-->
+            </div>
+            <div class="navigation">
+                {{ knp_pagination_render(m) }}
+            </div>
+            <!-- /row -->
+        </section>
+        <!-- /wrapper -->
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+
+
+{% endblock %}

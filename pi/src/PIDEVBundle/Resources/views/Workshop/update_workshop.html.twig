@@ -1,0 +1,68 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <html>
+    <body>
+
+
+
+    <div class="container">
+        <div class="row">
+            <!-- Contact form Section Start -->
+            <div class="col-md-6">
+                <h2>ajouter votre Workshop   </h2>
+                <form enctype="multipart/form-data" method="post" class="contact" >
+
+                    <div class="form-group">
+                        <label class="col-md-6 control-label" for="nom">nom</label>
+                        {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-6 control-label" for="prix">prix</label>
+                        {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-6 control-label" for="description">Description</label>
+
+                        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-6 control-label" for="date">date</label>
+                        {{ form_widget(form.date, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-6 control-label" for="salle">capacite</label>
+                        {{ form_widget(form.capacite, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-6 control-label" for="salle">salle</label>
+                        {{ form_widget(form.salle, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+
+                        <label class="col-md-6 control-label" for="idtypework">Type de votre Workshop</label>
+                        {{ form_widget(form.idtypework, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6 text-right">
+                            {{ form_widget(form.ajouter, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    </body>
+
+    </html>
+
+{% endblock %}
+

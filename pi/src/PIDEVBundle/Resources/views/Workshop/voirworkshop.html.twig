@@ -1,0 +1,87 @@
+{% extends "::Client.html.twig" %}
+{% block content %}
+    <div class="row">
+        <div class="text-center">
+            <h3 class="border-success"><span class="heading_border bg-success" >Voici touts les workshop</span></h3>
+        </div>
+
+        <!-- left Section Start -->
+
+    </div>
+
+
+    <div class="container">
+        <div class="row details">
+            <h2><label> soyez les bienvenus</label></h2>
+            <!-- Slider Section Start -->
+            <div class="col-md-6">
+                <div class="col-md-5 col-sm-12 slider">
+                    <div id="owl-demo" class="owl-carousel owl-theme">
+                        <div class="item">
+                            <img src="{{ asset('images/arij/' ~ workshop.images)}}"  alt="slider-image">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- //Slider Section End -->
+            <!-- Project Description Section Start -->
+            <div class="col-md-6">
+                <h3 class="project">Description de L'evenement</h3>
+                <div class="text-justify">
+                    <ul>
+                        <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> Son nom est :{{ workshop.nom }}</li>
+                        <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i>son prix est :{{ workshop.prix }}</li>
+                        <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i>Se termine  : {{ workshop.date|date('Y-m-d') }}</li>
+                        <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> categorie : {{ workshop.idtypework.nom }}</li>
+                        <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> salle : {{ workshop.salle.nom }}</li>
+                        <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> Description : {{ workshop.description}}</li>
+
+
+
+                    </ul>
+
+                </div>
+                <h3>Details  Organisateur</h3>
+                <ul>
+
+                    <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> Le proprietaire est : {{workshop.idUser}}</li>
+
+                    <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> Son email :  {{ workshop.idUser.email}}</li>
+
+                </ul>
+
+                <div class="input-group">
+                    <table>
+
+                        {% for i in inter if workshop is same as(i.workshop) and user is same as(i.idUser)%}
+                            <label> Workshop est un favoris</label>
+                        {% else  %}a
+                            <li><a id="btn" class=" btn btn-primary" href="{{ path('ajoutfav',{'ide':workshop.id}) }}"><span class="text-white"><i class="livicon" data-name="hand-right" data-size="24" data-loop="true" data-c="#fff" data-hc="white"></i></span></a></li>
+                        {% endfor %}
+                    </table>
+
+
+                </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+    <!-- //Project Description Section End -->
+
+    <br><br><br><br><br><br><br><br><br>
+    <script src="{{asset ("js/jquery.js") }}"></script>
+    <script>
+        $('#btn').click(
+            function(){
+                $('table').hide();
+            }
+        )
+    </script>
+{% endblock %}

@@ -1,0 +1,108 @@
+pidev_homepage:
+    path:     /user
+    defaults: { _controller: PIDEVBundle:Default:index }
+admin_homepage:
+        path:     /admin
+        defaults: { _controller: PIDEVBundle:Default:admin }
+cite_register:
+  path:   /register
+  defaults: { _controller: PIDEVBundle:Registration:register }
+
+_redirect:
+    path:     /Redirect
+    defaults: { _controller: PIDEVBundle:Security:Redirect }
+
+ajout_workshop:
+    path:     /ajoutworshop
+    defaults: { _controller: PIDEVBundle:Workshop:ajoutWorkshop }
+
+update_workshop:
+    path:     /updateWorkshop
+    defaults: { _controller: PIDEVBundle:Workshop:updateWorkshop }
+
+supprimer_workshop:
+    path:     /supprimerWorkshop
+    defaults: { _controller: PIDEVBundle:Workshop:supprimerWorkshop }
+
+ajout:
+    path:     /ajout
+    defaults: { _controller: PIDEVBundle:Worshop:AjouterWorkshop }
+affiche:
+  path:     /affiche
+  defaults: { _controller: PIDEVBundle:Worshop:afficherWorkshop }
+read:
+  path:     /read
+  defaults: { _controller: PIDEVBundle:Worshop:ListWorkshopBack }
+update:
+  path:     /update/{id}
+  defaults: { _controller: PIDEVBundle:Worshop:updateWorkshop }
+_after_login:
+    path:     /AfterLogin
+    defaults: { _controller: PIDEVBundle:AfterLogin:AfterLogin }
+
+supprimer:
+    path:     /Supprimer/{id}
+    defaults: { _controller: PIDEVBundle:Workshop1:Supprimer }
+
+ajouter_session:
+    path:     /ajoutS
+    defaults: { _controller: PIDEVBundle:Session:ajouterSession }
+affichersession:
+  path:     /afficheS
+  defaults: { _controller: PIDEVBundle:Session:afficherSession }
+selectworkshop:
+  path:     /select/{idSession}
+  defaults: { _controller: PIDEVBundle:Workshop1:SelectWorkshopByidSession }
+Archive:
+  path:     /archive
+  defaults: { _controller: PIDEVBundle:Worshop:ArchiveWorkshop }
+ajout_type_work:
+    path:     /ajoutt
+    defaults: { _controller: PIDEVBundle:TypeWorkshop:ajoutTypeWork }
+
+supprimer_type_work:
+    path:     /suppt
+    defaults: { _controller: PIDEVBundle:TypeWorkshop:supprimerTypeWork }
+update_type_work:
+  path:     /up/{id}
+  defaults: { _controller: PIDEVBundle:TypeWorkshop:updateTypeWorkshop }
+
+affiche_type_work:
+    path:     /affichet
+    defaults: { _controller: PIDEVBundle:TypeWorkshop:afficheTypeWork }
+supprimerSession:
+  path:     /Supp/{id}
+  defaults: { _controller: PIDEVBundle:Session:SupprimerSession }
+afficheradminsession:
+  path:     /afficheas
+  defaults: { _controller: PIDEVBundle:Session:afficherAdminSession }
+updatesession1:
+  path:     /upd/{ide}
+  defaults: { _controller: PIDEVBundle:Session:updateSession}
+selectworkshop1:
+  path:     /s/{idSession}
+  defaults: { _controller: PIDEVBundle:Workshop1:SelectWorkshop }
+ArchiveAdmin:
+  path:     /ar
+  defaults: { _controller: PIDEVBundle:Worshop:ArchiveAdmin }
+afficherAdmin:
+  path:     /aff
+  defaults: { _controller: PIDEVBundle:Worshop:WorkshopAdmin }
+a_recherche2:
+    path:     /recherche2
+    defaults: { _controller: PIDEVBundle:Workshop1:recherche2 }
+voirwork:
+  path:     /voir/{id}
+  defaults: { _controller: PIDEVBundle:Workshop1:voirWorkshop }
+a_recherche1:
+  path:     /recherche5
+  defaults: { _controller: PIDEVBundle:Admin:recherche2 }
+ajoutfav:
+  path:     /ajoutfav/{ide}
+  defaults: { _controller: PIDEVBundle:Favoris:ajout }
+mesfavoris:
+  path:     /mesfavoris
+  defaults: { _controller: PIDEVBundle:Favoris:Mesfavoris}
+TopWorkshop:
+  path:     /top
+  defaults: { _controller: PIDEVBundle:Favoris:TopWorkshop}

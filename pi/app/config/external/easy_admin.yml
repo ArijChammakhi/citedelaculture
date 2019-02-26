@@ -1,0 +1,22 @@
+easy_admin:
+  entities:
+
+    Workshop:
+        class: pi\PIDEVBundle\Entity\Workshop
+        list:
+            fields:
+                 - "name"
+                 - { property: 'image', type: 'image', base_path: '%app.path.workshop_images%' }
+                 - "colors"
+                 - "players"
+        form:
+            fields:
+                 - "name"
+                 - { property: 'image', type: 'vich_image' }
+
+        show:
+          fields:
+          - { property: 'image', type: 'image', base_path: '%app.path.workshop_images%' }
+
+
+

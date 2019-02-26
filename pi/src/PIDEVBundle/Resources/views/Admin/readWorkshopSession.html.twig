@@ -1,0 +1,61 @@
+{% extends 'admin.html.twig' %}
+
+
+
+
+{% block content %}
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <h3><i class="fa fa-angle-right"></i> Les sessions</h3>
+            <div class="row mb">
+                <!-- page start-->
+                <div class="content-panel">
+                    <div class="adv-table">
+                        <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+                            <tr><td> Son nom est</td><td>son prix est</td><td>realiser </td><td>Former par </td><td>type de workshop </td><td>salle </td><td>Session </td></tr>
+                            {% for workshop in pagination%}
+                                <tr>
+                                    <td>
+                                        {{ workshop.nom }}
+                                    </td>
+                                    <td>
+                                        {{ workshop.prix }}
+                                    </td>
+                                    <td>
+                                        {{ workshop.date|date }}
+                                    </td>
+                                    <td>
+                                        {{ workshop.idUser }}
+                                    </td>
+                                    <td>
+                                        {{ workshop.idtypework.nom }}
+                                    </td>
+                                 <td>
+                                     {{ workshop.salle.nom }}
+                                 </td>
+                                    <td>
+                                        {{ workshop.idSession.titre }}
+                                    </td>
+
+                                </tr>
+                            {% endfor %}
+
+                        </table>
+                    </div>
+                </div>
+                <!-- page end-->
+            </div>
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+            <!-- /row -->
+        </section>
+        <!-- /wrapper -->
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+
+
+{% endblock %}
+

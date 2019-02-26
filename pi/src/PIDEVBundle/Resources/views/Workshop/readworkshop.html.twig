@@ -1,0 +1,70 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="text-center">
+            <h3 class="border-success"><span class="heading_border bg-success" >Mes Workshop</span></h3>
+        </div>
+
+        <!-- left Section Start -->
+
+    </div>
+    <div class="container">
+        <table>
+
+
+
+                    <tbody>
+                    <tr>
+                        <td>
+                            {% if pagination|length==0 %}
+                                <h4>aucune formation disponible</h4>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% for workshop in pagination  %}
+                        <tr {% if loop.index is odd %}class="color"{% endif %}>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="thumbnail text-center">
+
+
+
+                                    <br/>
+                                    <h5 class="text-primary">Voici les coordoneés d un workshop </h5>
+                                    <img src="{{ asset('images/arij/') }}{{ workshop.images }}" style="width: 150px; height: 150px">
+                                    <ul>
+                                        <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> Son nom est : {{ workshop.nom }}</li>
+                                        <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> son prix est :{{ workshop.prix }}</li>
+                                        <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> realiser a  : {{ workshop.date|date('Y-m-d') }}</li>
+                                        <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> Former par  : {{ workshop.idUser }}</li>
+                                        <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> Type de workshop : {{ workshop.idtypework.nom }}</li>
+                                        <li><i class="livicon" data-name="check" data-size="18" data-loop="true" data-c="#787878" data-hc="787878"></i> salle : {{ workshop.salle.nom }}</li>
+
+
+                                    </ul>
+
+                                    <a  class="btn btn-primary btn-block text-white" href="{{ path('update',{'id': workshop.id }) }}" >Modifier</a>
+
+                                    <a  class="btn btn-danger btn-block text-white" href="{{ path('supprimer',{ 'id' : workshop.id}) }}">Supprimer</a>
+
+
+
+                                </div>
+
+
+                            </div>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {# display navigation #}
+                <div class="navigation">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

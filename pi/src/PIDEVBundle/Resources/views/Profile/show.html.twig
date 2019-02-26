@@ -1,0 +1,80 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% extends "PIDEVBundle::client_layout.html.twig" %}
+
+{% block content %}
+
+
+    <div class="breadcum">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li>
+                    <i class="livicon icon3 icon4" data-name="home" data-size="18" data-loop="true" data-c="#3d3d3d" data-hc="#3d3d3d"></i>Acceuil
+                    </a>
+                </li>
+                <li class="hidden-xs">
+                    <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="true" data-c="#01bc8c" data-hc="#01bc8c"></i>
+                    <a href="{{ path('fos_user_profile_show') }}">Profile</a>
+                </li>
+            </ol>
+            <div class="pull-right">
+                <i class="livicon icon3" data-name="users" data-size="20" data-loop="true" data-c="#3d3d3d" data-hc="#3d3d3d"></i> Profile
+            </div>
+        </div>
+    </div>
+    <!-- //Breadcrumb Section End -->
+    <!-- Container Section Start -->
+    <br> <br>
+    <div class="container">
+        <!-- Slider Section Start -->
+        <div class="row">
+            <div class="text-center">
+                <h3 class="border-success"><span class="heading_border bg-success" >Votre Profile</span></h3>
+            </div>
+            <!-- Left Heading Section Start -->
+
+            <!-- //Left Heaing Section End -->
+            <!-- Slider Start -->
+            <div class="col-md-5 col-sm-12 ">
+
+
+                <br><br>
+                <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="conf">
+                    Modidifer votre image de profile
+                </button>
+            </div>
+            <!-- //Slider End -->
+        </div>
+        <!-- //Slider Section End -->
+        <!-- Services Section Start -->
+        <div class="row">
+            <div class="text-center">
+                <h3 class="border-success"><span class="heading_border bg-success" >Nos Services</span></h3>
+            </div>
+            <section class="purchas-main">
+                <div class="container bg-border">
+                    <div class="row">
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                            <h1 class="purchae-hed">Consulter Tous Vos Achats</h1></div>
+
+                    </div>
+                </div>
+            </section>
+            <section class="purchas-main">
+                <div class="container bg-border">
+                    <div class="row">
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                            <h1 class="purchae-hed">Consulter Tous Vos Annonces Lost&Found</h1></div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- // Services Section End -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+        </div>
+    </div>
+
+{% endblock content%}
